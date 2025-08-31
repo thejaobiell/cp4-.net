@@ -4,11 +4,23 @@ using SafeAlertApi.Data;
 using SafeAlertApi.Models;
 using SafeAlertApi.DTOs;
 using System.Text.Json.Serialization;
+using DotNetEnv;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+Env.Load(); // carrega o .env
+
+var username = Environment.GetEnvironmentVariable("DB_USER") ?? "";
+var password = Environment.GetEnvironmentVariable("DB_PASSWORD") ?? "";
+var host = Environment.GetEnvironmentVariable("DB_HOST") ?? "";
+var port = Environment.GetEnvironmentVariable("DB_PORT") ?? "";
+var service = Environment.GetEnvironmentVariable("DB_SERVICE") ?? "";
+
+var urlConexaoOracle = $"User Id={username};Password={password};Data Source={host}:{port}/{service}";
+
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseOracle(builder.Configuration.GetConnectionString("OracleDb")));
+    options.UseOracle(urlConexaoOracle));
 
 builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(options =>
 {

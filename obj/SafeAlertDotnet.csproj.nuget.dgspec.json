@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/thejaobiel/Documentos/GitHub/SafeAlertRepo/SafeAlertDotnet/SafeAlertDotnet.csproj": {}
+    "/home/joao/Downloads/cp4-.net/SafeAlertDotnet.csproj": {}
   },
   "projects": {
-    "/home/thejaobiel/Documentos/GitHub/SafeAlertRepo/SafeAlertDotnet/SafeAlertDotnet.csproj": {
+    "/home/joao/Downloads/cp4-.net/SafeAlertDotnet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/thejaobiel/Documentos/GitHub/SafeAlertRepo/SafeAlertDotnet/SafeAlertDotnet.csproj",
+        "projectUniqueName": "/home/joao/Downloads/cp4-.net/SafeAlertDotnet.csproj",
         "projectName": "SafeAlertDotnet",
-        "projectPath": "/home/thejaobiel/Documentos/GitHub/SafeAlertRepo/SafeAlertDotnet/SafeAlertDotnet.csproj",
-        "packagesPath": "/home/thejaobiel/.nuget/packages/",
-        "outputPath": "/home/thejaobiel/Documentos/GitHub/SafeAlertRepo/SafeAlertDotnet/obj/",
+        "projectPath": "/home/joao/Downloads/cp4-.net/SafeAlertDotnet.csproj",
+        "packagesPath": "/home/joao/.nuget/packages/",
+        "outputPath": "/home/joao/Downloads/cp4-.net/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/thejaobiel/.nuget/NuGet/NuGet.Config"
+          "/home/joao/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -44,6 +44,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "DotNetEnv": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",

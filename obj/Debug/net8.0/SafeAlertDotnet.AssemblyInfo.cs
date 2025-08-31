@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SafeAlertDotnet")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+710ebd92b4e84d65031703ce0d0f8cb934e8d00f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5f67f8b0f35c8f544d1acddd312cc7ee5be6431b")]
 [assembly: System.Reflection.AssemblyProductAttribute("SafeAlertDotnet")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SafeAlertDotnet")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
