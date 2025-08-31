@@ -571,5 +571,5 @@ app.MapGet("/", () => "API SafeAlert está ativa!")
         Description = "Verifica se a API está ativa."
     });
 
-
+//
 await app.RunAsync();
