@@ -1,6 +1,6 @@
 namespace SafeAlertApi.DTOs;
 
-public class OcorrenciaDTO
+public class OcorrenciaDto
 {
     public int Id { get; set; }
     public int Postagem_id { get; set; }

@@ -2,19 +2,21 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Collections.Generic;
 
-public class TagOrderDocumentFilter : IDocumentFilter
+namespace SafeAlertApi.Swagger
 {
-    public void Apply(OpenApiDocument swaggerDoc, DocumentFilterContext context)
+    public class TagOrderDocumentFilter : IDocumentFilter
     {
-        var orderedTags = new List<OpenApiTag>
+        public void Apply(OpenApiDocument swaggerDoc, DocumentFilterContext context)
         {
-            new OpenApiTag { Name = "Usuários" },
-            new OpenApiTag { Name = "Localidades" },
-            new OpenApiTag { Name = "Eventos" },
-            new OpenApiTag { Name = "Postagens" },
-            new OpenApiTag { Name = "Ocorrências" }
-        };
-
-        swaggerDoc.Tags = orderedTags;
+            var orderedTags = new List<OpenApiTag>
+            {
+                new OpenApiTag { Name = "Usuários" },
+                new OpenApiTag { Name = "Localidades" },
+                new OpenApiTag { Name = "Eventos" },
+                new OpenApiTag { Name = "Postagens" },
+                new OpenApiTag { Name = "Ocorrências" }
+            };
+            swaggerDoc.Tags = orderedTags;
+        }
     }
 }

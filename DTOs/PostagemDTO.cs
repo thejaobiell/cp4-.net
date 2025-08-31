@@ -1,6 +1,6 @@
 namespace SafeAlertApi.DTOs;
 
-public class PostagemDTO
+public class PostagemDto
 {
     public int Id { get; set; }
     public int Usuario_id { get; set; }

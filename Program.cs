@@ -4,6 +4,7 @@ using SafeAlertApi.Data;
 using SafeAlertApi.Models;
 using SafeAlertApi.DTOs;
 using System.Text.Json.Serialization;
+using SafeAlertApi.Swagger;
 using DotNetEnv;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -62,7 +63,7 @@ app.UseCors("AllowAll");
 
 app.MapGet("/usuarios", async (AppDbContext db) =>
     await db.Usuarios
-        .Select(u => new UsuarioDTO
+        .Select(u => new UsuarioDto
         {
             Id = u.Id,
             Nome = u.Nome,
@@ -82,7 +83,7 @@ app.MapGet("/usuarios/{id}", async (int id, AppDbContext db) =>
 {
     var dto = await db.Usuarios
         .Where(u => u.Id == id)
-        .Select(u => new UsuarioDTO
+        .Select(u => new UsuarioDto
         {
             Id = u.Id,
             Nome = u.Nome,
@@ -106,7 +107,7 @@ app.MapPost("/usuarios", async (Usuario usuario, AppDbContext db) =>
     db.Usuarios.Add(usuario);
     await db.SaveChangesAsync();
 
-    var dto = new UsuarioDTO
+    var dto = new UsuarioDto
     {
         Id = usuario.Id,
         Nome = usuario.Nome,
@@ -168,7 +169,7 @@ app.MapDelete("/usuarios/{id}", async (int id, AppDbContext db) =>
 
 app.MapGet("/localidades", async (AppDbContext db) =>
     await db.Localidades
-        .Select(l => new LocalidadeDTO
+        .Select(l => new LocalidadeDto
         {
             Id = l.Id,
             Bairro = l.Bairro ?? "",
@@ -185,7 +186,7 @@ app.MapGet("/localidades/{id}", async (int id, AppDbContext db) =>
 {
     var dto = await db.Localidades
         .Where(l => l.Id == id)
-        .Select(l => new LocalidadeDTO
+        .Select(l => new LocalidadeDto
         {
             Id = l.Id,
             Bairro = l.Bairro ?? "",
@@ -206,7 +207,7 @@ app.MapPost("/localidades", async (Localidade input, AppDbContext db) =>
     db.Localidades.Add(input);
     await db.SaveChangesAsync();
 
-    var dto = new LocalidadeDTO
+    var dto = new LocalidadeDto
     {
         Id = input.Id,
         Bairro = input.Bairro ?? "",
@@ -262,7 +263,7 @@ app.MapDelete("/localidades/{id}", async (int id, AppDbContext db) =>
 
 app.MapGet("/eventos", async (AppDbContext db) =>
     await db.Eventos
-        .Select(e => new EventoDTO
+        .Select(e => new EventoDto
         {
             Id = e.Id,
             Tipo = e.Tipo ?? "",
@@ -279,7 +280,7 @@ app.MapGet("/eventos/{id}", async (int id, AppDbContext db) =>
 {
     var dto = await db.Eventos
         .Where(e => e.Id == id)
-        .Select(e => new EventoDTO
+        .Select(e => new EventoDto
         {
             Id = e.Id,
             Tipo = e.Tipo ?? "",
@@ -300,7 +301,7 @@ app.MapPost("/eventos", async (Evento evento, AppDbContext db) =>
     db.Eventos.Add(evento);
     await db.SaveChangesAsync();
 
-    var dto = new EventoDTO
+    var dto = new EventoDto
     {
         Id = evento.Id,
         Tipo = evento.Tipo ?? "",
@@ -356,7 +357,7 @@ app.MapDelete("/eventos/{id}", async (int id, AppDbContext db) =>
 
 app.MapGet("/postagens", async (AppDbContext db) =>
     await db.Postagens
-        .Select(p => new PostagemDTO
+        .Select(p => new PostagemDto
         {
             Id = p.Id,
             Usuario_id = p.Usuario_id,
@@ -378,7 +379,7 @@ app.MapGet("/postagens/{id}", async (int id, AppDbContext db) =>
 {
     var dto = await db.Postagens
         .Where(p => p.Id == id)
-        .Select(p => new PostagemDTO
+        .Select(p => new PostagemDto
         {
             Id = p.Id,
             Usuario_id = p.Usuario_id,
@@ -404,7 +405,7 @@ app.MapPost("/postagens", async (Postagem postagem, AppDbContext db) =>
     db.Postagens.Add(postagem);
     await db.SaveChangesAsync();
 
-    var dto = new PostagemDTO
+    var dto = new PostagemDto
     {
         Id = postagem.Id,
         Usuario_id = postagem.Usuario_id,
@@ -469,7 +470,7 @@ app.MapDelete("/postagens/{id}", async (int id, AppDbContext db) =>
 
 app.MapGet("/ocorrencias", async (AppDbContext db) =>
     await db.Ocorrencias
-        .Select(o => new OcorrenciaDTO
+        .Select(o => new OcorrenciaDto
         {
             Id = o.Id,
             Postagem_id = o.Postagem_id,
@@ -487,7 +488,7 @@ app.MapGet("/ocorrencias/{id}", async (int id, AppDbContext db) =>
 {
     var dto = await db.Ocorrencias
         .Where(o => o.Id == id)
-        .Select(o => new OcorrenciaDTO
+        .Select(o => new OcorrenciaDto
         {
             Id = o.Id,
             Postagem_id = o.Postagem_id,
@@ -509,7 +510,7 @@ app.MapPost("/ocorrencias", async (Ocorrencia ocorrencia, AppDbContext db) =>
     db.Ocorrencias.Add(ocorrencia);
     await db.SaveChangesAsync();
 
-    var dto = new OcorrenciaDTO
+    var dto = new OcorrenciaDto
     {
         Id = ocorrencia.Id,
         Postagem_id = ocorrencia.Postagem_id,
@@ -570,4 +571,4 @@ app.MapGet("/", () => "API SafeAlert está ativa!")
         Description = "Verifica se a API está ativa."
     });
 
-app.Run();
+await app.RunAsync();

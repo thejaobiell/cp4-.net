@@ -1,6 +1,6 @@
 namespace SafeAlertApi.DTOs;
 
-public class LocalidadeDTO
+public class LocalidadeDto
 {
     public int Id { get; set; }
     public string Bairro { get; set; } = null!;
